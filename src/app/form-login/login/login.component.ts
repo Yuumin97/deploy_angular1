@@ -13,21 +13,20 @@ export class LoginComponent implements OnInit {
   form: any = {};
   hide = true;
   signInForm: SignInForm;
-  status = 'Please fill in the form login';
+  status = '';
   constructor(private authService: AuthService,
               private tokenService: TokenService,
               private router: Router
   ) {}
-
   ngOnInit(): void {
+    console.log(this.status);
     this.status = localStorage.getItem('SUCCESS_KEY');
     if (localStorage.getItem('SUCCESS_KEY') != null) {
       this.status = localStorage.getItem('SUCCESS_KEY');
     } else {
-      this.status = 'Đăng nhập thất bại!';
-    }
-  }
-
+      this.status = 'Vui lòng điền vào mẫu đăng nhập ';
+    };
+  };
   login() {
     this.signInForm = new SignInForm(
       this.form.username,
@@ -45,7 +44,7 @@ export class LoginComponent implements OnInit {
       }
       // @ts-ignore
       if (data.status == 202){
-        this.status = 'Login failed! Please check your username or password!'
+        this.status = 'Đăng nhập thất bại ! Vui lòng kiểm tra lại tài khoản và mật khẩu'
       }
     });
   }

@@ -1,8 +1,8 @@
 <nav class="docs-navbar-header" aria-label="Top Toolbar">
-  <a routerLinkActive="home" mat-button class="docs-button"  aria-label="Angular Material">
-    <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/angular-white-transparent.svg"
+  <a routerLink="home" mat-button class="docs-button"  aria-label="Angular Material">
+    <img class="docs-angular-logo" src="../../../assets/images/logos/logo1.png"
       alt="">
-    <span>Audio Player</span>
+    <span> Shop </span>
   </a>
   <a *ngIf="!checkLogin" mat-button class="docs-button" routerLink="register" aria-label="Angular Material">
     <span>Register</span>
@@ -12,9 +12,25 @@
     <span>Login</span>
     <mat-icon style="color: white"> login</mat-icon>
   </a>
+  <a mat-button class="docs-button" routerLink="category" aria-label="Angular Material">
+    <span>Category</span>
+    <mat-icon style="color: white"> category</mat-icon>
+  </a>
+  <a mat-button class="docs-button" routerLink="create-category" aria-label="Angular Material">
+    <span>Create Category</span>
+    <mat-icon style="color: white"> category</mat-icon>
+  </a>
+  <a mat-button class="docs-button" routerLink="products" aria-label="Angular Material">
+    <span>Product</span>
+    <mat-icon style="color: white"> computer</mat-icon>
+  </a>
+  <a mat-button class="docs-button" routerLink="page-category" aria-label="Angular Material">
+    <span>Create Category</span>
+    <mat-icon style="color: white"> category</mat-icon>
+  </a>
   <div class="flex-spacer"></div>
   <app-theme-picker></app-theme-picker>
-  <div><a routerLink="profile"><img *ngIf="checkLogin" style="width: 50px; height: 50px;border-radius: 50%"  src="{{avatar}}">
+  <div *ngIf="checkLogin"><a routerLink="profile"><img  style="width: 50px; height: 50px;border-radius: 50%"  src="{{avatar}}">
   <span></span>
   <span>PROFILE</span>
   </a>

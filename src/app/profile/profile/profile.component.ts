@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
     if (this.tokenService.getToken()){
       this.name = this.tokenService.getName();
       this.avatar = this.tokenService.getAvatar();
+      console.log('có gì ở đây k',this.avatar);
       this.roles = this.tokenService.getRole();
     }
   }

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 20px">
+            <mat-card style="margin: 50px 0">
+                <div class="search">
+                    <mat-form-field style="width: 350px" appearance="outline">
+                        <mat-label>Search Category:</mat-label>
+                        <input matInput [(ngModel)]="searchText">
+                        <mat-icon color="accent" matSuffix>search</mat-icon>
+                    </mat-form-field><br>
+                </div>
+                <div class="row" >
+                    <div class="column" *ngFor="let ctg of categories ">
+                        <button [routerLink]="['/update-category/',ctg.id]" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                            <mat-icon color="primary">edit</mat-icon>
+                        </button>
+                        <button (click)="openDialog(ctg.id)" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                            <mat-icon color="warn">delete</mat-icon>
+                        </button>
+                        <div class="card">
+                            <i style="font-size: 1.5vw; color: crimson">{{ctg.name}}</i>
+                            <img class="img" [src]="ctg.avatar">
+                        </div>
+                    </div>
+                </div>
+                <mat-paginator [length]="totalElement"
+                               [pageSizeOptions]="[3, 6, 9, 90]"
+                               aria-label="Select page"
+                               (page)="nextPage($event)">
+                </mat-paginator>
+
+            </mat-card>
+        </div>
+    </div>
+</div>
